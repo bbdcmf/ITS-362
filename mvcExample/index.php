@@ -2,7 +2,7 @@
 
 	require("includes/config.inc.php");
 
-	//require(MYSQL); // my database
+	require(MYSQL); // my database
 
 	include('html/header.htm');
 

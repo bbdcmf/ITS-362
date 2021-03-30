@@ -5,13 +5,13 @@
 	// includes a hashing function for the password
 
 	// set the database access information as constants
-	DEFINE('DB_USER', 'bsmith');
-	DEFINE('DB_PASSWORD','asdklfj;lkaje');
-	DEFINE('DB_HOST', '205.215.114.13');
-	DEFINE('DB_NAME', '362project');
+	DEFINE('DB_USER', 'its362');
+	DEFINE('DB_PASSWORD','toor');
+	DEFINE('DB_HOST', 'localhost');
+	DEFINE('DB_NAME', 'MVC362DB');
 
 	// make the connection
 
-	$dbc = ??; 
+	$dbh = new PDO('mysql:host=localhost;dbname=MVC362DB', DB_USER, DB_PASSWORD);
 
 ?>
