@@ -1,0 +1,44 @@
+<html>
+
+	<head>
+
+	<link rel="stylesheet" href="css/styles.css" />
+
+	</head>
+
+	<body>
+	
+		<div id="wrap">
+			<div class="header">
+				<h1> <a href="index.php"> MVC Website </a> </h1>
+			</div>
+
+			<div id="nav">
+
+				<ul>
+
+				<?php
+					$pages = array(
+						'Home' => 'index.php',
+						'About' => '#',
+						'Contact' => '#',
+						'Register' => 'register.php'
+					);
+
+					foreach ($pages as $k => $v) {
+
+						echo "<li><a href='";
+						echo $v;
+						echo "'>";
+						echo $k;
+						echo "</a></li>";
+
+					}
+
+				?>
+				</ul>
+
+			</div>
+			<div class="page">
+
+				<div class="content">
