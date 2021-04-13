@@ -18,14 +18,32 @@
 		//this is insecure
 		$q = "SELECT email, username FROM Users WHERE email='$e' OR username='$u'";
 		
+		$dbh->query($q);
+		echo('no PS runs');
 		// this is secure via prepared statement
-		$stmt = $dbh->prepare('SELECT email, username FROM Users 
-		WHERE email=:email OR username=:username');
+		$stmt = $dbh->prepare("SELECT email, username FROM Users 
+		WHERE email=:email OR username=:username");
 		
 		$stmt->bindParam(':email', $e);
 		$stmt->bindParam(':username', $u);
 		
 		$stmt->execute();
+		
+		echo('PS runs');
+		
+		$stmt = $dbh->prepare("INSERT INTO Users 
+		(firstName, lastName, email, userName, pass) 
+		VALUES (:firstName, :lastName, :email, :userName, :pass)");
+		
+		$stmt->bindParam(':firstName', $fn);
+		$stmt->bindParam(':lastName', $ln);
+		$stmt->bindParam(':email', $e);
+		$stmt->bindParam(':userName', $u);
+		$stmt->bindParam(':pass', $p);
+		
+		$stmt->execute();
+		
+		echo('inserted');
 	}
 ?>
 
