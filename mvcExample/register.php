@@ -14,12 +14,15 @@
 		$u = $_POST['userName'];
 		$p = $_POST['pass1'];
 		
+		/*
 		//sql injection
 		//this is insecure
 		$q = "SELECT email, username FROM Users WHERE email='$e' OR username='$u'";
 		
 		$dbh->query($q);
 		echo('no PS runs');
+		*/
+		
 		// this is secure via prepared statement
 		$stmt = $dbh->prepare("SELECT email, username FROM Users 
 		WHERE email=:email OR username=:username");
@@ -29,7 +32,15 @@
 		
 		$stmt->execute();
 		
-		echo('PS runs');
+		//check that does not exist
+		if($stmt->rowCount() > 0)
+		{
+		    
+		}
+		else {
+			
+		}
+		// if row == 0 then continue to insert, else display message
 		
 		$stmt = $dbh->prepare("INSERT INTO Users 
 		(firstName, lastName, email, userName, pass) 

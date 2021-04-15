@@ -13,5 +13,11 @@
 	// make the connection
 
 	$dbh = new PDO('mysql:host=localhost;dbname=MVC362DB', DB_USER, DB_PASSWORD);
+	
+	function get_password_hash($pass) {
+	
+		return hash_hmac('sha256',$pass, 'c#haR1891', true);
+	
+	}
 
 ?>
